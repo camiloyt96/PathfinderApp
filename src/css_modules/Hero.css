@@ -1,0 +1,8 @@
+
+
+.carousel-hero {
+  background-size: contain;
+  background-position: center;
+  min-height: 600px;
+  background-repeat: no-repeat;
+}

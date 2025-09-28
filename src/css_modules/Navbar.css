@@ -1,0 +1,18 @@
+/* Elimina el margen entre botones consecutivos */
+.btn + .btn {
+  margin-left: 0 !important;
+}
+
+.navbarlogo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.path-title {
+  background: linear-gradient(135deg,rgba(255, 83, 31, 1) 0%, rgba(250, 135, 135, 1) 25%, rgba(217, 2, 2, 1) 50%, rgba(161, 0, 0, 1) 58%, rgba(150, 0, 0, 1) 66%, rgba(255, 130, 130, 1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
