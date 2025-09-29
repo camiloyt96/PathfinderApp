@@ -1,8 +1,9 @@
+// Navbar.jsx
 import dice20 from '../assets/dice20.png'
 import '../css_modules/Navbar.css'
 import NavButton from './NavButton'
 
-export default function Navbar () {
+export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-dark p-2">
         <div className="container-fluid d-flex gap-2">
@@ -16,10 +17,10 @@ export default function Navbar () {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
               <div className="d-flex flex-lg-row flex-column gap-2 justify-content-end w-100">
-            <NavButton text="Home" onClick={() => alert('Get Started clicked!')} />
-            <NavButton text="Iniciar Sesion" onClick={() => alert('Get Started clicked!')} />
-            <NavButton text="Registrarse" onClick={() => alert('Learn More clicked!')} />
-            <NavButton text="Acerca de" onClick={() => alert('Learn More clicked!')} />
+            <NavButton text="Home" to="/" />
+            <NavButton text="Iniciar Sesion" to="/login" />
+            <NavButton text="Registrarse" to="/register" />
+            <NavButton text="Acerca de" onClick={() => alert('Sobre nosotros')} />
           </div>
         </div>
       </div>
