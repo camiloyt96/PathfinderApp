@@ -13,7 +13,7 @@ export default function RegisterPage() {
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            height: '100vh',
+            height: '150vh',
             marginTop: "-40px",
             }}>
                 <RegisterBox/>
