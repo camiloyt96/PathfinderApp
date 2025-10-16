@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase.js'; // Import the 'auth' instance from your config
 import { createUserWithEmailAndPassword } from 'firebase/auth'; // Import the registration function
+import {useNavigate} from 'react-router-dom';
 
 export default function RegisterBox() {
     const [username, setUsername] = useState(''); // State for username (optional for Firebase Auth, but good for display name later)
@@ -10,6 +11,7 @@ export default function RegisterBox() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
@@ -45,6 +47,17 @@ export default function RegisterBox() {
             setEmail('');
             setPassword('');
             setConfirmPassword('');
+
+            const success = true;
+
+            if (success) {
+                setTimeout(() => {
+                navigate('/login'); // Redirect to login page after successful registration    
+                }, 2000);
+                
+            }
+
+
 
         } catch (firebaseError) {
             console.error('Error al registrar el usuario:', firebaseError.message);
@@ -120,7 +133,7 @@ export default function RegisterBox() {
                         {successMessage && <div className="alert alert-success" role="alert">{successMessage}</div>}
 
                         {/* Changed the first button to type="button" as it seems to be for navigation */}
-                        <button type="button" className="btn btn-secondary w-100 mb-2">Login</button>
+                        
                         {/* This button will now trigger the handleRegister function */}
                         <button type="submit" className="btn btn-primary w-100">Registrarse</button>
                     </form>
