@@ -2,7 +2,7 @@ import React from 'react';
 import { expect, vi, describe, it, beforeEach } from 'vitest';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import RegisterBox from './RegisterBox';
+import RegisterBox from '../src/components/RegisterBox.jsx';
 
 // Extiende expect con los matchers de @testing-library/jest-dom (para Vitest)
 expect.extend(matchers);
