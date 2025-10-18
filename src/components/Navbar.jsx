@@ -20,7 +20,7 @@ export default function Navbar() {
             <NavButton text="Home" to="/" />
             <NavButton text="Iniciar Sesion" to="/login" />
             <NavButton text="Registrarse" to="/register" />
-            <NavButton text="Acerca de" to="/chat" />
+            <NavButton text="Chat" to="/chat" />
           </div>
         </div>
       </div>

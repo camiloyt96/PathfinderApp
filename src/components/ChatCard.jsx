@@ -37,6 +37,16 @@ export default function ChatCard() {
     return () => unsubscribe();
   }, []);
 
+  const formatTime = (timestamp) => {
+    if (!timestamp) return "";
+
+    //convertir timestamp de firebase a Date
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+
+    return `${hours}:${minutes}`;
+  };
   //Enviar mensaje 
   const handleSendMessage = async (e) => {
     e.preventDefault();
@@ -57,13 +67,13 @@ export default function ChatCard() {
 
     return (
     <div className="container-lg d-flex justify-content-end">
-      <div className="card card-details shadow-sm" style={{ width: "400px" }}>
+      <div className="card card-details shadow-sm" >
         <div className="card-header bg-primary text-white fs-3 fw-semibold">
           Chat
         </div>
 
         <div
-          className="card-body overflow-auto"
+          className="card-body overflow-auto "
           ref={listRef}
           style={{ maxHeight: "400px" }}
         >
@@ -72,7 +82,10 @@ export default function ChatCard() {
           ) : (
             messages.map(msg => (
               <div key={msg.id} className={`mb-2 ${msg.user === (auth.currentUser?.displayName || auth.currentUser?.email) ? 'text-end' : 'text-start'}`}>
-                <small className="text-muted">{msg.user}</small>
+                
+                <div className="text-xs font-semibold text-gray-600 mb-1 px-2 ">
+                  {msg.user}
+                </div>
                 <div className={`p-2 rounded ${msg.user === (auth.currentUser?.displayName || auth.currentUser?.email) ? 'bg-primary text-white d-inline-block' : 'bg-light d-inline-block'}`}>
                   {msg.text}
                 </div>
