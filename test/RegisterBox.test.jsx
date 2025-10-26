@@ -2,6 +2,7 @@ import React from 'react';
 import { expect, vi, describe, it, beforeEach, afterEach } from 'vitest';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import RegisterBox from '../src/components/RegisterBox.jsx';
 
 // Extiende expect con los matchers de @testing-library/jest-dom (para Vitest)
@@ -29,14 +30,22 @@ describe('RegisterBox', () => {
   });
 
   it('renderiza el título y subtítulo correctamente', () => {
-    render(<RegisterBox />);
+    render(
+      <MemoryRouter>
+        <RegisterBox />
+      </MemoryRouter>
+    );
     // Comprueba el título principal y parte del subtítulo tal como está en el componente
     expect(screen.getByText('Bienvenido a PathFinder Society!')).toBeInTheDocument();
     expect(screen.getByText(/Registra tu nueva cuenta/)).toBeInTheDocument();
   });
 
   it('muestra validación cuando faltan campos', async () => {
-    render(<RegisterBox />);
+    render(
+      <MemoryRouter>
+        <RegisterBox />
+      </MemoryRouter>
+    );
     // No rellenamos nada y pulsamos Registrarse
     fireEvent.click(screen.getByText('Registrarse'));
 
@@ -46,7 +55,11 @@ describe('RegisterBox', () => {
   });
 
   it('muestra error cuando las contraseñas no coinciden', async () => {
-    render(<RegisterBox />);
+    render(
+      <MemoryRouter>
+        <RegisterBox />
+      </MemoryRouter>
+    );
     fireEvent.change(screen.getByLabelText('Nombre de Usuario'), { target: { value: 'TestUser' } });
     fireEvent.change(screen.getByLabelText('Correo Electronico'), { target: { value: 'test@email.com' } });
     fireEvent.change(screen.getByLabelText('Password'), { target: { value: '123456' } });
@@ -60,7 +73,11 @@ describe('RegisterBox', () => {
   });
 
   it('muestra error cuando la contraseña es demasiado corta', async () => {
-    render(<RegisterBox />);
+    render(
+      <MemoryRouter>
+        <RegisterBox />
+      </MemoryRouter>
+    );
     fireEvent.change(screen.getByLabelText('Nombre de Usuario'), { target: { value: 'TestUser' } });
     fireEvent.change(screen.getByLabelText('Correo Electronico'), { target: { value: 'test@email.com' } });
     fireEvent.change(screen.getByLabelText('Password'), { target: { value: '123' } });
@@ -79,7 +96,11 @@ describe('RegisterBox', () => {
       user: { email: 'test@email.com', uid: '123' }
     });
 
-    render(<RegisterBox />);
+    render(
+      <MemoryRouter>
+        <RegisterBox />
+      </MemoryRouter>
+    );
     fireEvent.change(screen.getByLabelText('Nombre de Usuario'), { target: { value: 'TestUser' } });
     fireEvent.change(screen.getByLabelText('Correo Electronico'), { target: { value: 'test@email.com' } });
     fireEvent.change(screen.getByLabelText('Password'), { target: { value: '123456' } });
