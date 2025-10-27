@@ -1,6 +1,7 @@
 import Roll from "roll";
 import { useState } from "react";
 import { useDiceRollSFX } from "../utils/diceRollSFX";
+import EmojiPickerButton from "./EmojiPickerButton";
 
 export default function ChatInput({ onSendMessage, disabled = false }) {
   const [text, setText] = useState("");
@@ -35,6 +36,18 @@ export default function ChatInput({ onSendMessage, disabled = false }) {
     }
   };
 
+  const handleEmojiSelect = async (emoji) => {
+  if (!emoji || disabled) return;
+
+  try {
+    await onSendMessage(emoji, null); // Enviar solo el emoji, sin diceResult
+  } catch (error) {
+    console.error("Error al enviar emoji:", error);
+    alert("No se pudo enviar el emoji");
+  }
+};
+
+
   const handleRoll = (text) => {  //Funcion para manejar los comandos de dados
     try {
       let diceResult = null;
@@ -61,22 +74,26 @@ export default function ChatInput({ onSendMessage, disabled = false }) {
   };
 
   return (
-    <form className="card-footer d-flex gap-2" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Escribe un mensaje..."
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        disabled={disabled}
-      />
-      <button 
-        type="submit" 
-        className="btn btn-primary"
-        disabled={disabled || !text.trim()}
-      >
-        Enviar
-      </button>
-    </form>
-  );
+  <form className="card-footer d-flex gap-2" onSubmit={handleSubmit}>
+    <input
+      type="text"
+      className="form-control"
+      placeholder="Escribe un mensaje..."
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+      disabled={disabled}
+    />
+    <EmojiPickerButton 
+      onEmojiSelect={handleEmojiSelect}
+      disabled={disabled}
+    />
+    <button 
+      type="submit" 
+      className="btn btn-primary"
+      disabled={disabled || !text.trim()}
+    >
+      Enviar
+    </button>
+  </form>
+);
 }
