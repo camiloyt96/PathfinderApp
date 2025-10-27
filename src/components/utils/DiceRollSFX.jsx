@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import diceSound from '../../assets/sounds/DiceRoll.wav';
+import diceSound from '../../assets/sounds/DiceRoll.mp3';
 
   
 

@@ -11,9 +11,9 @@ export default function ChatCard() {
 
   if (loading) {
     return (
-      <div className="container-lg d-flex justify-content-end">
-        <div className="card shadow-sm" style={{ width: "400px" }}>
-          <div className="card-body text-center py-5">
+      <div className="container-lg d-flex justify-content-center align-items-center" >
+        <div className="card shadow-sm">
+          <div className="card-body text-center">
             <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Cargando...</span>
             </div>
@@ -26,8 +26,8 @@ export default function ChatCard() {
 
   if (error) {
     return (
-      <div className="container-lg d-flex justify-content-end">
-        <div className="alert alert-danger" style={{ width: "400px", minHeight: "800px" }}>
+      <div className="container-lg d-flex justify-content-center align-items-center" >
+        <div className="alert alert-danger" style={{ width: "400px" }}>
           <h5 className="alert-heading">Error</h5>
           <p className="mb-0">{error}</p>
         </div>
@@ -36,8 +36,8 @@ export default function ChatCard() {
   }
 
   return (
-    <div className="container-lg d-flex justify-content-end">
-      <div className="card card-details shadow-sm" style={{ width: "400px" }}>
+    <div className="container-lg d-flex justify-content-center align-items-center" >
+      <div className="card card-details shadow-sm">
         <ChatHeader />
         <ChatMessageList messages={messages} scrollRef={scrollRef} />
         <ChatInput onSendMessage={sendMessage} />
