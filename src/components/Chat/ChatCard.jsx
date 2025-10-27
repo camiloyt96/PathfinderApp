@@ -1,3 +1,4 @@
+import React from "react";
 import { useChat } from "../hooks/useChat";
 import { useAutoScroll } from "../hooks/useAutoScroll";
 import ChatHeader from "./ChatHeader";
