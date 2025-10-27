@@ -5,6 +5,7 @@ import '../css_modules/Navbar.css'
 import NavButton from './NavButton'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../firebase'
+import LogoutButton from './LogoutButton'
 
 export default function Navbar() {
   const [user, setUser] = useState(auth.currentUser)
@@ -29,14 +30,19 @@ export default function Navbar() {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <div className="d-flex flex-lg-row flex-column gap-2 justify-content-end w-100">
-            <NavButton text="Home" to="/" />
-            <NavButton text="Chat" to="/chat" />
-            {/* Mostrar Perfil si hay sesión, si no mostrar Login/Register */}
             {user ? (
-              <NavButton text="Perfil" to="/profile" />
-            ) : (
+              // Usuario autenticado: Home, Chat, Perfil, Logout
               <>
-                <NavButton text="Iniciar Sesion" to="/login" />
+                <NavButton text="Home" to="/" />
+                <NavButton text="Chat" to="/chat" />
+                <NavButton text="Perfil" to="/profile" />
+                <LogoutButton className="btn btn-warning" />
+              </>
+            ) : (
+              // Usuario NO autenticado: Home, Iniciar Sesión, Registrarse
+              <>
+                <NavButton text="Home" to="/" />
+                <NavButton text="Iniciar Sesión" to="/login" />
                 <NavButton text="Registrarse" to="/register" />
               </>
             )}
