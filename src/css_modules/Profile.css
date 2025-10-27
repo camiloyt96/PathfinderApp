@@ -1,0 +1,127 @@
+.profile-card {
+  width: 860px;
+  max-width: calc(100% - 48px);
+  border-radius: 8px;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #2b2f31; /* mismo tono oscuro */
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+
+/* Página: usa el mismo fondo que el registro */
+.profile-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 0;
+  background-image: url('../assets/register-bg.jpg'); /* <- reemplaza por el nombre real del fondo si hace falta */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* tarjeta con el mismo tamaño que RegisterBox */
+.register-card,
+.profile-card-lg {
+  width: 420px;           /* tamaño idéntico al registro */
+  max-width: calc(100% - 48px);
+  border-radius: 8px;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: rgba(43,47,49,0.95); /* tono oscuro similar */
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+
+/* panel de marca a la izquierda */
+.brand-pane {
+  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+  text-align: center;
+  color: #e74c3c; /* rojo Pathfinder / similar */
+  min-height: 260px;
+}
+
+.profile-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.brand-title {
+  color: #e74c3c;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+
+.brand-sub {
+  color: #bfc3c6;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* labels y inputs estilo RegisterBox */
+.profile-form .label-upper {
+  display: block;
+  color: #9aa0a6;
+  font-weight: 700;
+  font-size: 0.83rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.profile-form .form-control {
+  background-color: #121416; /* input oscuro */
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 10px 12px;
+  box-shadow: none;
+  height: 44px;
+}
+
+.profile-form .form-control:disabled {
+  opacity: 1; /* que se vea claramente */
+  color: #fff;
+}
+
+/* título centrado tamaño similar al RegisterBox */
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* responsive: en pantallas pequeñas apilar columnas */
+@media (max-width: 767px) {
+  .register-card,
+  .profile-card-lg {
+    width: 100%;
+  }
+
+  .brand-pane {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px;
+  }
+
+  .brand-title { font-size: 1rem; }
+  .profile-logo { width: 48px; height: 48px; }
+}
+
+/* responsive: apilar en móvil */
+@media (max-width: 767px) {
+  .register-card,
+  .profile-card-lg {
+    width: 92%;
+  }
+
+  .brand-pane {
+    display: none; /* en móviles mostramos solo formulario para ocupar espacio */
+  }
+}
