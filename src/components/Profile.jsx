@@ -4,6 +4,7 @@ import dice20 from "../assets/dice20.png";
 import "../css_modules/Profile.css";
 import Navbar from "./Navbar.jsx";
 import ProfileBox from "./ProfileBox.jsx";
+import backgroundImage from '../assets/background_perfil.jpg';
 
 export default function Profile({ user }) {
   const u = user ?? auth.currentUser ?? {};
@@ -12,7 +13,13 @@ export default function Profile({ user }) {
   const email = u.email ?? "";
 
   return (
-    <div> 
+    <div style={{
+                        backgroundImage: `url(${backgroundImage})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        height: '100vh',
+                        
+                        }}> 
       <Navbar />
       <ProfileBox user={{ username, displayName, email }} />  
     
