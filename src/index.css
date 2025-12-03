@@ -36,3 +36,7 @@ body {
   margin-top: 20px;
 }
 
+.card-Filter {
+  background-color: var(--bs-dark);
+}
+
