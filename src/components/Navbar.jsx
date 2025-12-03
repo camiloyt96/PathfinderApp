@@ -36,14 +36,16 @@ export default function Navbar() {
                 <NavButton text="Home" to="/" />
                 <NavButton text="Chat" to="/chat" />
                 <NavButton text="Perfil" to="/profile" />
+                <NavButton text="Catalog" to="/catalog" />
                 <LogoutButton className="btn btn-warning" />
               </>
             ) : (
-              // Usuario NO autenticado: Home, Iniciar Sesión, Registrarse
+              // Usuario NO autenticado: Home, Iniciar Sesión, Registrarse, Catalog
               <>
                 <NavButton text="Home" to="/" />
                 <NavButton text="Iniciar Sesión" to="/login" />
                 <NavButton text="Registrarse" to="/register" />
+                <NavButton text="Catalog" to="/catalog" />
               </>
             )}
           </div>
