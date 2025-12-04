@@ -2,7 +2,7 @@ export default function CatalogCard({ product }) {
     return (
         <div className="card h-100 card-Filter text-white">
             <img 
-                src={product.imageUrl || 'https://via.placeholder.com/300x200?text=No+Image'} 
+                src={product.url || 'https://imgur.com/ufwoOrC.png'} 
                 alt={product.nombre} 
                 className='card-img-top' 
                 style={{ objectFit: 'cover', height: '200px' }}
