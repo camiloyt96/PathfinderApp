@@ -24,7 +24,7 @@
 /* tarjeta con el mismo tamaño que RegisterBox */
 .register-card,
 .profile-card-lg {
-  width: 420px;           /* tamaño idéntico al registro */
+  width: 580px;           /* tarjeta más ancha para perfil */
   max-width: calc(100% - 48px);
   border-radius: 8px;
   font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -42,15 +42,15 @@
 }
 
 .profile-logo {
-  width: 72px;
-  height: 72px;
+  width: 92px;
+  height: 92px;
   object-fit: contain;
 }
 
 .brand-title {
   color: #e74c3c;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   margin-top: 6px;
   letter-spacing: 0.02em;
 }
@@ -66,20 +66,21 @@
   display: block;
   color: #9aa0a6;
   font-weight: 700;
-  font-size: 0.83rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .profile-form .form-control {
   background-color: #121416; /* input oscuro */
   color: #ffffff;
   border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 4px;
-  padding: 10px 12px;
+  border-radius: 6px;
+  padding: 12px 14px;
   box-shadow: none;
-  height: 44px;
+  height: 52px;
+  font-size: 0.98rem;
 }
 
 .profile-form .form-control:disabled {
@@ -87,10 +88,37 @@
   color: #fff;
 }
 
+/* Avatar y subida */
+.profile-avatar-wrap { display:flex; flex-direction:column; align-items:center; width:200px; }
+.profile-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: #8a8f93; /* gris por defecto */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 4px rgba(0,0,0,0.12);
+}
+.profile-avatar .avatar-initials { width:100%; height:100%; display:block; }
+.avatar-upload-btn { font-size: 0.9rem; padding:6px 10px; }
+.file-input-hidden { display:none; }
+
+/* Botón completar perfil */
+.complete-btn { background-color:#2ea44f; border-color:#2ea44f; }
+.complete-btn:hover { background-color:#27943f; border-color:#27943f; }
+
+/* Ajustes específicos para el layout del perfil */
+.profile-top { gap: 28px; align-items: flex-start; }
+
+
 /* título centrado tamaño similar al RegisterBox */
 .card-title {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.9rem;
+  font-weight: 800;
   color: #fff;
 }
 
