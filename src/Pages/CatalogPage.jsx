@@ -12,7 +12,7 @@ export default function CatalogPage() {
     // Estados de filtros
     const [filters, setFilters] = useState({
         categories: [],
-        maxPrice: 100000,
+        maxPrice: 50,
         onlyAvailable: false
     });
 
@@ -72,7 +72,7 @@ export default function CatalogPage() {
     const handleClearFilters = () => {
         setFilters({
             categories: [],
-            maxPrice: 100000,
+            maxPrice: 50,
             onlyAvailable: false
         });
     };
@@ -202,7 +202,7 @@ export default function CatalogPage() {
     const uniqueCategories = [...new Set(allProducts.map(p => p.categoriaNombre))];
     
     // Obtener precio máximo
-    const maxProductPrice = Math.max(...allProducts.map(p => p.precio), 100000);
+    const maxProductPrice = Math.max(...allProducts.map(p => p.precio), 50);
 
     return (
         <div>
